@@ -7,6 +7,7 @@ pipeline {
             }
             steps {
                 sh 'mvn --version'
+                sh 'mvn compile'
             }
         }
         stage('Front-end') {
@@ -15,6 +16,7 @@ pipeline {
             }
             steps {
                 sh 'node --version'
+                sh 'node app.js'
             }
         }
         stage('DB') {
