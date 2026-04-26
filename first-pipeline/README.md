@@ -1,0 +1,1 @@
+This is simple Jenkinsfile which contains Docker nodejs as agent and checks for node available or not.
