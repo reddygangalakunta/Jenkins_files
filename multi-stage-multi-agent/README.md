@@ -1,0 +1,1 @@
+This jenkins give a syntactical idea of multi stage and multi agent structure. and only should taken for example on how it is written ad elaborate on top of it.
