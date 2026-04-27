@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'yashwanth1232/jenkins-maven-docker-agent:v2'
-      args '-v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+      image 'yashwanth1232/jenkins-maven-docker-agent:v3'
+      args '-u 1000:1000 -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
   stages {
