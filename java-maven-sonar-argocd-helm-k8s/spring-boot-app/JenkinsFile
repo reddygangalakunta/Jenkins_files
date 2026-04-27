@@ -5,11 +5,14 @@ pipeline {
       args '-v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
+  options {
+    skipDefaultCheckout()
+  }
   stages {
     stage('Checkout') {
       steps {
-        // sh 'echo passed'
-        git branch: 'main', url: 'https://github.com/reddygangalakunta/Jenkins_files.git'
+        deleteDir()
+        checkout scm
       }
     }
     stage('Build and Test') {
