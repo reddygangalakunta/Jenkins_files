@@ -12,9 +12,12 @@ RUN set -eux \
         curl \
         jq \
         ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd -g 126 jenkins || true \
+    && id -u jenkins >/dev/null 2>&1 || useradd -m -u 123 -g 126 -s /bin/bash jenkins \
+    && mkdir -p /workspace /home/jenkins/.m2 \
+    && chown -R jenkins:jenkins /workspace /home/jenkins/.m2
 
-ENV MAVEN_CONFIG="/root/.m2"
+USER jenkins
+ENV HOME=/home/jenkins MAVEN_CONFIG="/home/jenkins/.m2"
 WORKDIR /workspace
-
-ENTRYPOINT ["bash"]

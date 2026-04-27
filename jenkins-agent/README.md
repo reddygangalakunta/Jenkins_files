@@ -7,6 +7,7 @@ This directory contains a Dockerfile for a Jenkins pipeline agent that includes:
 - Git
 - Bash shell
 - Curl and jq for scripts and API calls
+- non-root Jenkins-compatible user support
 
 ## Build the agent image
 
